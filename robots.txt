@@ -1,9 +1,9 @@
-﻿User-agent: *
-Disallow: archive/
-Disallow: /style/
-Disallow: /s/
-Disallow: 404.html
-Disallow: *.md
-Disallow: *.js
-Disallow: *.css
-Sitemap: https://a234934.sitemaphosting5.com/4200585/sitemap.xml
+# www.robotstxt.org/
+
+# Allow crawling of all content
+
+User-agent: *
+Disallow: 
+
+# Announce sitemap - https://support.google.com/webmasters/answer/183668
+Sitemap: https://yo1995.github.io/sitemap.xml

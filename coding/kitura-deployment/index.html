@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简单记录部署Kitura和Nginx环境的过程">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>Kitura deployment notes</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/kitura-deployment/" />
+  <link rel="alternate" type="application/rss+xml" title="Ting's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Ting's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/kitura-deployment/" />
+  <meta property="og:title" content="Kitura deployment notes" />
+  <meta property="og:description" content="简单记录部署Kitura和Nginx环境的过程" />
+  <meta property="og:article:published_time" content="2019-06-19T00:00:00-07:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201906/swift.png" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog/" class="animsition-link">Tin<span>g</span>'s Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+								<li>
+									<a href="/cards/" class="animsition-link">
+										<span>All Cards</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201906/swift.png" alt="Kitura deployment notes">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2019-06-19T00:00:00-07:00" itemprop="datePublished">
+              Jun 19, 2019
+            </div>
+            <h1 class="post-title" itemprop="name headline">Kitura deployment notes</h1>
+            <div class="content-color">
+            
+            <h2 id="背景">
+<a class="anchor" href="#%E8%83%8C%E6%99%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>背景</h2>
+
+<p>Ric前些阵子提出想部署一个纯Swift的开发环境，即macOS/iOS客户端用Swift写，后台服务器也用Swift起。这样的好处在于开发者只用掌握一门语言，即可完成“全栈”——整个应用的开发流程。</p>
+
+<p>事不宜迟，我马上去调研有哪些较为成熟的后端方案。首先映入眼帘的是<a href="https://github.com/IBM-Swift/Kitura">Kitura</a>/<a href="https://github.com/vapor/vapor">Vapor</a>/<a href="https://github.com/PerfectlySoft/Perfect">Perfect</a>三驾马车。其中Kitura是IBM牵头的，其他二者为第三方为主导。更新频率方面，Vapor最快最勤，亲身践行了Swift官方跨大版本该API的“优良传统”，每次升级有很多部分推倒重来；Kitura有如IBM的一贯作风，稳健迟缓，据说后向兼容性能够保持到初代；Perfect虽说有一点中文支持，但更新频率赶不上二者，直到Swift5.1发布时依旧只停留在4.1的支持。</p>
+
+<p>最开始我是选择了Kitura的，无它，相信大品牌<del>名字读起来带感</del>。它的文档也是比较全面而克制的，简洁而富有表达力，花了半小时就配好了环境。一切顺利，我想先试试官方提到的几个亮点功能吧，结果随便安装了个Markdown，发现渲染效果不堪直视——连表格和任务清单都无法渲染。这让我这个GitLab中度用户非常不爽，遂弃而转向Vapor。</p>
+
+<p>Vapor的安装稍微多花一点时间，原因是其初始的“内置电池”，自带功能比较多，在3409这台Core Duo E8400的老机器上编译花了不少时间。加上后端Swift暂时还通过一个叫做SPM的工具管理，原理类似Carthage，不如CocoaPods可以直接引入二进制文件那么快。在等的过程中，我便熟悉了一下Vapor的文档。</p>
+
+<p>作为一个只用过Python Web后端的菜鸟选手，我对服务器的认识主要来源于Django。Django的文档既清晰又极具操作性，每次忘记一些概念，开个项目一试就弄清了，非常适合学生做点自用的小服务器。上次Livid还说Django是“重量级”的服务，我倒不觉得。较之LAMP、Nginx，Django的部署可谓相当轻松了。</p>
+
+<p>不过在看文档的过程中，还是有些隐忧。相比于Kitura，Vapor的“跑路”可能性更大。项目的姊妹云服务标价没啥竞争力，整个网站也有点买模板的感觉，Ubuntu的文档不如Kitura详细。语法也没有其那么标准易于理解。无论如何，还是先部署一个试试。</p>
+
+<hr>
+
+<h2 id="安装swift环境">
+<a class="anchor" href="#%E5%AE%89%E8%A3%85swift%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Swift环境</h2>
+
+<p>从<a href="https://swift.org/download/">官网</a>下载，检查签名然后解压。如果不直接放进系统的bin的话，需要设置环境变量：</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span>/path/to/usr/bin:<span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">"</span>
+</code></pre></div></div>
+<p>执行或者将其加入<code class="language-plaintext highlighter-rouge">~/.bashrc</code>即可。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>swift <span class="nt">--version</span>
+</code></pre></div></div>
+<p>以检查环境是否正确，Swift程序可以找到。</p>
+
+<h2 id="安装vapor环境">
+<a class="anchor" href="#%E5%AE%89%E8%A3%85vapor%E7%8E%AF%E5%A2%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>安装Vapor环境</h2>
+
+<p>目前2019年6月19日最新版本的环境是Vapor4，但仅支持Swift5.1.由于Swift官网发布版还在5.0.1版，因此就退而求其次选了Vapor3。等秋季开始时再看是否需要升级。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">eval</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-sL</span> https://apt.vapor.sh<span class="si">)</span><span class="s2">"</span>
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>vapor
+<span class="nv">$ </span>vapor <span class="nt">--help</span>
+</code></pre></div></div>
+
+<p>检查vapor环境正确。</p>
+
+<p>然后通过</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vapor new &lt;your-project-name&gt;
+</code></pre></div></div>
+<p>创建一个APP。与Django的startproject过程一样，都会创建一个包含设置、路由以及MVC的项目。不同的是，Vapor把文件夹都默认好了，只要把对应模块放进去即可。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vapor build
+<span class="nv">$ </span>vapor run
+</code></pre></div></div>
+<p>或直接运行run也会增量编译。</p>
+
+<p>默认编译是Debug的scheme，可通过<code class="language-plaintext highlighter-rouge">vapor run--env production</code>设为禁用debug输出等等。
+最后编译运行，即可在<code class="language-plaintext highlighter-rouge">http://localhost:8080</code>看到It works的字样。</p>
+
+<h2 id="配置nginx代理">
+<a class="anchor" href="#%E9%85%8D%E7%BD%AEnginx%E4%BB%A3%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>配置Nginx代理</h2>
+
+<p>本以为应该没啥问题，结果栽了大跟头。先说说桌子下这台Core Duo的主机。估计有年头了，CPU E8400，至少也是08或09年的机器了。内存2G、硬盘20G，由工院IT支持部门的小哥维护，通过netID登录，网卡注册到devices页面。这网络配置跟散落在学校各处的iMac估计很类似。然而最初我并未意识到这点，仍以为这是台空白的，完全由自己掌控的电脑。</p>
+
+<p>于是就一步步来呗，按照一个<a href="https://medium.com/@ahmedraad/how-to-deploy-vapor-app-on-ubuntu-16-04-and-run-it-in-production-eef18f7b4f05">教程</a>安装了个Supervisor，后来觉得还是直接用screen留着会话，每次连上去看log比较简单，于是又改了回来。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>supervisorctl status
+</code></pre></div></div>
+<p>的效果与</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>screen <span class="nt">-ls</span>
+</code></pre></div></div>
+<p>并不一样，一个是监控进程状态，另一个是监控会话状态。</p>
+
+<p>然后第二部分教程让改防火墙。这也很正常，毕竟Windows每次做些跟网络有关的实验也需要关。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ufw <span class="nb">enable</span>
+<span class="nv">$ </span><span class="nb">sudo </span>ufw allow ssh
+<span class="nv">$ </span><span class="nb">sudo </span>ufw allow http
+<span class="nv">$ </span><span class="nb">sudo </span>ufw status
+</code></pre></div></div>
+
+<p>此处ufw是<code class="language-plaintext highlighter-rouge">Uncomplicated Firewall</code>的简称，是Ubuntu的简化版iptables，也就是这段网上看来的描述坑了我两三个小时的时间。</p>
+
+<p>把ufw打开，允许22和80端口，这都很容易理解。然后配置nginx，因为暂时没有域名，所以直接搞</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>nano /etc/nginx/sites-available/default
+</code></pre></div></div>
+<p>即可，指定80端口（上面防火墙允许了的），然后映射到本地的8080端口。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+    }
+}
+</code></pre></div></div>
+
+<p>一切都是简单直观，不应该有任何问题。然而一刷新我傻了：<code class="language-plaintext highlighter-rouge">Connection Refused.</code></p>
+
+<p>不死心，换了两台设备测，结果一台是timeout另一台也是refused。这让我顿生疑虑。一般而言我见过的refused都因为服务器配置了规则禁止连接，但怎么又会timeout呢？难道是nginx根本没起来？</p>
+
+<p>花了半小时了解如何获取nginx运行状态，以及<a href="https://www.keycdn.com/support/nginx-commands">常见nginx操作</a>：</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>service nginx status
+<span class="nv">$ </span>systemctl status nginx.service
+<span class="nv">$ </span><span class="nb">sudo </span>lsof <span class="nt">-i</span> TCP:80
+<span class="nv">$ </span>systemctl <span class="nt">-q</span> is-active nginx <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">"It is active"</span>
+<span class="nv">$ </span>systemctl restart nginx
+</code></pre></div></div>
+
+<p>检查了一圈发现，似乎问题不在它身上。当时还在用Supervisor，又花了半小时研究如何检查它的状态，发现除了写了个typo以外并没有什么问题。题外话：自己打字不好速度快容易错的毛病，在开始学编程后被急剧放大，经常因为打错字怀疑人生，打错字挥泪重启服务器的举动不知一次出现——循环条件错死循环、内核变量地址错kernel panic，如此种种，累觉不爱。吭哧吭哧又浪费半小时，排除了它的嫌疑。</p>
+
+<p>冷静下来一想，本地既然能够访问，那说明跟Swift和Vapor都没有关系。但是localhost能够访问127.0.0.1却不能，这又是为什么呢？感觉自己逐渐抓住了重点，于是去看hosts，看ufw的设置，C(4,2)一番穷举测试发现并没有什么用。时间不知不觉地流逝，只好一边吃差强人意的速冻盒饭一边调试。怎么设置ufw都没用，真的有些气馁了。还能有啥原因呢？</p>
+
+<p>最后只能硬着头皮用关键字搜，搜到了关于<a href="https://serverfault.com/questions/129086/how-to-start-stop-iptables-on-ubuntu">iptables</a>的操作。先是看到了个<a href="https://serverfault.com/questions/670575/failed-to-connect-to-127-0-0-1-port-80">类似的问题</a>，然后开始现场学<a href="https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/">如何改iptables</a>。最后打开这台主机的iptables一看，唉呀妈呀这是turd mountain啊！</p>
+
+<p>130多行的规则，清晰地划分了学院各个子网的访问权限，其中INPUT部分的<code class="language-plaintext highlighter-rouge">-A INPUT -j drop</code>赫然在目。就是这句话浪费了我人生中宝贵的两个半小时。之前一直以为这是台人畜无害的干净主机，甚至连git和nginx都没装过。谁曾想，没装过nginx却把防火墙规则配了一溜够，真是披着羊皮的狼！</p>
+
+<p>试了试发现靠前的条目优先级高于靠后的条目，于是加了一句<code class="language-plaintext highlighter-rouge">-A INPUT -s 10.0.0.0/8 -p tcp -m tcp --dport 80 -j ACCEPT</code>
+解决问题。按理说，我是不应该配置这台主机的网络的，但阴差阳错又折腾得够呛。除了新知道一个词iptables以外，大半天时间全无收获，非常烦躁。</p>
+
+<hr>
+
+<h2 id="后记">
+<a class="anchor" href="#%E5%90%8E%E8%AE%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>后记</h2>
+
+<p>越多地经历这样的情景，越让我觉得刷题有些可取之处。至少刷题时大脑能一直保持活动，时间不算浪费。而这种环境问题自己去找答案除了浪费时间毫无意义。最开始本想找个docker直接配好，结果这种小众的东西并没有人做高度定制化的docker，只有官方的两个镜像孤零零地挂在hub上。</p>
+
+<p>又想到可能会要用CUDA，干脆别折腾了，花点钱买AWS算了。</p>
+
+<p>吐槽完了，接着说Vapor，看它文档的功能还挺多挺全，而且Swift的Foundation并不比Python自带的库弱。尤其是宣传的性能Swift甚至能追上Go，令人很心动。之前看了几行go的代码，真的是难受啊，比C还难看。</p>
+
+<p>自己没想过成为一个程序员大牛，只希望能用计算机语言在最短的时间创造最大的快捷、便利、快乐与幸福，这便是我在计算机领域的理想。Swift、Python、MATLAB、Verilog加之MSVC家族，自下而上，由内到外，基本已经能满足我能想到的大部分设想。或许没必要再纠结于编译原理，本身就是门外汉，何必与专业人士比拼他们的强项呢？</p>
+
+<p>看着时长横跨17-19年的人生“或许是第一篇也是最后一篇”论文，从科研的急先锋跌至吊车尾，从编程的门外汉闯进疯人院……今天在和Millie录像时突然回首这两年，变化实在不小。或许在法国的平行世界中，我的变化更大？驾驶帆船乘风破浪在芒什海峡？摇车登上阿尔普迪埃？……</p>
+
+<p>兜兜转转多年后，还是踏进了编程的世界，不知压箱底的辛文送的Java教材会作何感想。</p>
+
+<p>满纸荒唐言，一把辛酸泪。😢</p>
+
+<hr>
+
+<h2 id="190623-补充">
+<a class="anchor" href="#190623-%E8%A1%A5%E5%85%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>190623 补充</h2>
+
+<ul>
+  <li>关于 WebSocket 的设置</li>
+</ul>
+
+<p>环境搭好了以后主要通过两个项目来入门学习后端的配置与编写服务。一个是<a href="https://github.com/IBM-Swift/Kitura-Sample">Kitura-Sample</a>，也就是Kitura官方教程汇总的一个repo。其中有一些问题已经通过issue反馈给了项目管理员。不得不说，正规军的响应速度、解答的耐心程度都值得称道，让我对IBM这家公司路转粉。</p>
+
+<p>在当前的项目中，有一个基于 WebSocket 的在线聊天室的实现。后端代码虽然简单但不失为一个好的脚手架，况且Swift原生的类似程序很少，值得继续探究。但当我想登入聊天室测试一下时，奇怪的事情发生了：<code class="language-plaintext highlighter-rouge">WebSocket connection failed: Error during WebSocket handshake: Unexpected response code: 302</code></p>
+
+<p>按理说302并非一个错误代码，可为什么无法建立连接呢？分别试了防火墙端口、路由路径以及npm依赖重装以后仍旧没有解决。在<a href="https://stackoverflow.com/questions/41381444/websocket-connection-failed-error-during-websocket-handshake-unexpected-respon">SO的帖子</a>上却看到了真正的原因。似乎是因为 Nginx 需要对 WebSocket 的 Upgrade header 做出<a href="https://www.nginx.com/blog/websocket-nginx/">具体设置</a>以实现长时间连接不断线的功能。</p>
+
+<p>因此，上面的有关Nginx的配置需要增添为：</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>nano /etc/nginx/sites-available/default
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $http_host;
+    }
+}
+</code></pre></div></div>
+
+<p>当然，最后两条和 WebSocket 无关，主要是把请求头补齐信息更全……</p>
+
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments" class="disqus-comment-count" data-disqus-identifier="Ting's Blog/coding/kitura-deployment">GFW comments</a>
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>5068 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/kitura-deployment/&amp;text=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/kitura-deployment/&title=分享%4011L23+的文章「Kitura deployment notes」&content=简单记录部署Kitura和Nginx环境的过程&pic=https://yo1995.github.io/images/201906/swift.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=Kitura deployment notes&href=https://yo1995.github.io/coding/kitura-deployment/&image=https://yo1995.github.io/images/201906/swift.png&url=https://yo1995.github.io/coding/kitura-deployment/&title=Kitura deployment notes" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=Kitura deployment notes&amp;Body=简单记录部署Kitura和Nginx环境的过程%20https://yo1995.github.io/coding/kitura-deployment/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/kitura-deployment/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201906/swift.png&url=https://yo1995.github.io/coding/kitura-deployment/&description=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/kitura-deployment/&amp;title=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/kitura-deployment/&amp;title=Kitura deployment notes" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/introspection/life-notes-190609/" class="animsition-link" data-hover-text="Prev: 生活点滴随记 - 190609">Prev: 生活点滴随记 - 190609</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/coding/kitura-setup/" class="animsition-link" data-hover-text="Next: Kitura 配置小感">Next: Kitura 配置小感</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aimed to exhibit activities & achievements during Ting's undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/kitura-deployment/";
+        this.page.identifier = "Ting's Blog//coding/kitura-deployment";
+        this.page.title = "Kitura deployment notes";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <!-- aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside -->
+		<!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#背景">背景</a></li>
+<li class="toc-entry toc-h2"><a href="#安装swift环境">安装Swift环境</a></li>
+<li class="toc-entry toc-h2"><a href="#安装vapor环境">安装Vapor环境</a></li>
+<li class="toc-entry toc-h2"><a href="#配置nginx代理">配置Nginx代理</a></li>
+<li class="toc-entry toc-h2"><a href="#后记">后记</a></li>
+<li class="toc-entry toc-h2"><a href="#190623-补充">190623 补充</a></li>
+</ul>
+            </div>
+        </aside>
+		
+		<!-- END WIDGET-WRAP -->
+		<aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/Xcode-markup-font/">
+                                <img src="/images/202108/Xcode-markup.png" alt="Xcode文档对齐小技巧">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/Xcode-markup-font/">Xcode文档对齐小技巧</a>
+                            <span>2021/08/21</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/life/grunion-run-2021/">
+                                <img src="/images/202108/grunion-handjob.jpg" alt="捕银鱼记">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/life/grunion-run-2021/">捕银鱼记</a>
+                            <span>2021/08/08</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/mobile-apps/">
+                                <img src="/images/202007/iOS-Hero.svg" alt="Mobile APPs">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/mobile-apps/">Mobile APPs</a>
+                            <span>2020/07/18</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <!-- aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#introspection">Introspection</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#sports">Sports</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+                <li><a href="/categories/#zhuism">Zhuism</a></li>
+                
+            </ul>
+        </aside -->
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div class="tag-cloud">
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#reminiscence">reminiscence</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#girl">girl</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#trivia">trivia</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#friend">friend</a>
+                
+                <a href="/tags/#cycling">cycling</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#ball">ball</a>
+                
+                <a href="/tags/#sport">sport</a>
+                
+                <a href="/tags/#entertainment">entertainment</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#technology">technology</a>
+                
+                <a href="/tags/#writing">writing</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+                <a href="/tags/#career">career</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tool">tool</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#finance">finance</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#food">food</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tip">tip</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#museum">museum</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/kitura-deployment/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+<!--script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  'GoogleAnalyticsObject'
+  'https://www.google-analytics.com/analytics.js'
+</script-->
+
+
+  </body>
+
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简单回顾650作业。">
+  <meta name="author" content="Chen Ting">
+  <meta name="keywords" content="">
+  <meta name="theme-color" content="#272727">
+
+  <title>650 作业回顾</title>
+
+  <link rel="icon" href="/img/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="canonical" href="https://yo1995.github.io/coding/ece650-homework-review/" />
+  <link rel="alternate" type="application/rss+xml" title="Ting's Blog" href="https://yo1995.github.io/feed.xml" />
+  
+  <meta property="og:site_name" content="Ting's Blog" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://yo1995.github.io/coding/ece650-homework-review/" />
+  <meta property="og:title" content="650 作业回顾" />
+  <meta property="og:description" content="简单回顾650作业。" />
+  <meta property="og:article:published_time" content="2019-04-16T00:00:00-07:00" />
+  <meta property="og:article:author" content="Chen Ting" />
+
+  <meta property="og:image" content="/images/201904/rootkit-512.png" />
+  
+
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.css">
+  <!-- PLUGINS -->
+  <link rel="stylesheet" href="/assets/css/vlthemes.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">	
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  
+  
+  
+
+</head>
+
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="100">
+
+		<!-- FRAMES -->
+		<span class="frame-line top-frame"></span>
+		<span class="frame-line right-frame"></span>
+		<span class="frame-line bottom-frame"></span>
+		<span class="frame-line left-frame"></span>
+
+    <div class="animsition">
+      <div class="content">
+
+        
+<!-- header-fixed / header-scroll-up  -->
+<div class="scroll-indicator fixedheader" style="width"></div>
+<header class="header-wrap header-fixed minimal-menu">
+    <div class="header-inner">
+        <div class="container">
+			
+            <div class="logo">
+                <a href="/blog/" class="animsition-link">Tin<span>g</span>'s Blog</a>
+            </div>
+			
+
+            <a href="#" class="menu-toggle desctop-menu">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <a href="#" class="menu-toggle mobile-menu-toggle">
+                <i class="menu-bars">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </i>
+            </a>
+
+            <nav class="primary-menu">
+
+                <ul>
+                    <li>
+                        <a href="/" class="animsition-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item-has-children" class="current-menu-item">
+                        <a href="">
+                            <span>Blog</span>
+                        </a>
+						    <ul class="sub-menu">
+								<li>
+									<a href="/blog/" class="animsition-link">
+										<span>Blog Index</span>
+									</a>
+								</li>
+								<li>
+									<a href="/posts/" class="animsition-link">
+										<span>Archives</span>
+									</a>
+								</li>
+								<li>
+									<a href="/categories/" class="animsition-link">
+										<span>Categories</span>
+									</a>
+								</li>
+								<li>
+									<a href="/tags/" class="animsition-link">
+										<span>Tags</span>
+									</a>
+								</li>
+								<li>
+									<a href="/cards/" class="animsition-link">
+										<span>All Cards</span>
+									</a>
+								</li>
+							</ul>
+                    </li>
+
+                    <li>
+                        <a href="/photos/" class="animsition-link">
+                            <span>Photos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/about/" class="animsition-link">
+                            <span>About</span>
+                        </a>
+                    </li>
+					
+					  <!--li>
+                        <a href="" class="animsition-link" id="CN">
+                            <span>CN</span>
+                        </a>
+                    </li-->
+                </ul>
+            </nav>
+            <!-- END PRIMARY-MENU -->
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <!-- END HEADER-INNER -->
+</header>
+<!-- END HEADER-WRAP -->
+
+
+        
+
+        <main id="main-content">
+          
+          <div class="single-post-wrap clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 content-fixed">
+
+        <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="post-thumb clearfix">
+            
+            <img src="/images/201904/rootkit-512.png" alt="650 作业回顾">
+            
+          </div>
+          
+          <div class="post-content" itemprop="articleBody">
+            <div class="post-date" datetime="2019-04-16T00:00:00-07:00" itemprop="datePublished">
+              Apr 16, 2019
+            </div>
+            <h1 class="post-title" itemprop="name headline">650 作业回顾</h1>
+            <div class="content-color">
+            
+            <p>这学期650做了几个作业，让我再次体会行将毕业还需用C语言来实现许多成熟功能时的心累——多么痛的领悟！</p>
+
+<p>总体来说，这些作业的代码质量实在一般，都有虎头蛇尾之嫌。虽然最后分数不低，但仍自觉写得十分垃圾。<br>
+因此在此简单回顾一下这些作业中值得反思与改进的地方，为以后再写C提供一些参考。</p>
+
+<h2 id="hw1--hw2---my_malloc">
+<a class="anchor" href="#hw1--hw2---my_malloc" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW1 &amp; HW2 - my_malloc</h2>
+
+<p>上来头一个作业就来了个下马威。自己有大半年没有写过C程序，很多常用的变量类型和语法都有点忘了，有时也会和C++的写法搞混。加之作业的步骤写得很简略，不像551那样手把手教你如何编程，第一个星期着实有点难过。好在写了几个简单的测试程序，借助<a href="http://cpp.sh/">cpp.sh</a>也找回些感觉。作业内容是设计一个程序来代替malloc/free的功能。按照我最开始的想法，直接把所有分配的块都记录下来接到一个链表上，在为每一个块设定一个是否可用的标志即可。但这个程序写出来以后用作业的测试用例一测，运行时间将近十分钟……等得花儿都谢了还以为自己写了死循环，做完饭发现跑出了结果。主要是因为全由一个链表管理时，每次分配都需要遍历链表长度数量级的节点，从而在不断malloc后消耗越来越长的时间。</p>
+
+<h3 id="改进">
+<a class="anchor" href="#%E6%94%B9%E8%BF%9B" aria-hidden="true"><span class="octicon octicon-link"></span></a>改进</h3>
+
+<p>改进的思路有两种，一种是只记录空闲块，即每次free后才将块计入链表，并在下次分配时从空闲链表移除该节点。另一种是保留两个链表，一个记录所有分配块，另一个记录空闲块。最后，为了省事，我还是采用了后者，毕竟完整链表的代码已经写好，想着偷懒便在那基础上改。这一改反而给自己造成了更多的麻烦……</p>
+
+<p>只记录空闲块有一个问题，即不知道一块内存是否由本程序分配。解决方案也很简单，可以在每块分配的内存的元数据中添加一些标识符，来确保是我们的malloc分配的内存。</p>
+
+<p>另一种思路曾经考虑过用二叉树来记录空闲块，这样在使用best fit策略查找特定大小的内存时时间复杂度较低。但由于自己基本功有些差，而且这种策略在合并相邻内存难以实现，因此没有继续深究。因为sbrk函数实际上是线性地在heap上申请空间分配给data segment区，比较适合采用一个线性的数据结构来对应其位置与顺序。</p>
+
+<h3 id="合并策略">
+<a class="anchor" href="#%E5%90%88%E5%B9%B6%E7%AD%96%E7%95%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>合并策略</h3>
+
+<p>当相邻的空闲块出现在空闲链表中时，我的策略是先从当前块向前遍历到第一个连续空闲块后再向后合并所有连续空闲块。这样的设计实际上效率与直接向后合并没有太大差距，但实现起来更容易出错——毕竟，判断指针是否合法、什么条件对应如何合并需要考虑清楚。也就是这里的过于追求合并的高效，造成第二次作业改进为多线程时的无法bug free……</p>
+
+<h3 id="第二次作业">
+<a class="anchor" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>第二次作业</h3>
+
+<p>第二次作业是在第一次作业基础上将malloc分别有锁和无锁地改写为多线程程序。有锁简单，只要把之前程序中所有涉及sbrk申请内存，以及改写两个链表的部分都加上锁就可以了。这种改法在测试中完全相当于重复执行单线程程序，时间也几乎就是单线程固定的倍数，没有什么特别的。</p>
+
+<p>无锁的方案利用了Thread Local Storage (TLS)变量的特性，即每个线程分别分配不同的内存，实现同名变量在线程间内存相互隔离。这时我又犯难了：究竟是推倒重来，完全用单一空闲链表的思路实现呢，还是在当前双链表的基础上改进呢？最后还是懒惰占了上风，也让我付出了不小代价：直到due前两小时还在debug，最终也没有bug free。</p>
+
+<p>多线程的主要问题就在于如何合并相邻空闲块。由于sbrk分配的内存地址仍旧是线性增长的，但存到空闲块链表的相邻块地址则不一定是连续的，这时候就需要很多与边界有关的判断。交作业时候心一狠直接把合并函数注释掉了，基本不影响时间，只是增加了fragmentation的指标，没扣几分，还算幸运……</p>
+
+<h2 id="hw3---socket_game">
+<a class="anchor" href="#hw3---socket_game" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW3 - socket_game</h2>
+
+<p>这次作业是第一次编写Linux socket相关的程序。在这之前，进程间通信、TCP协议的程序我是从来没有接触过，这次作业也是写得最辛苦的一次。从零开始读文档，借助老师给的例程理解SOCKET/BIND/LISTEN/ACCEPT/CONNECT/CLOSE/SEND/RECV分别是做什么的，哪个之后应该接哪个。在建立各个player之间以及与master的双向通信的图状结构时还比较顺利，等发起数据时候就乱套了。先是没有理解好select函数的作用，直到快due才明白它自己就可以同时监测多个socket/file descriptor。然后是没搞清楚socket关闭后会发生什么，于是对最后清理时出现的种种bug百思不得其解。</p>
+
+<p>依旧在提交时也没能bug free，只在某些情况下能够输出正确的结果，另一些情况下对于结束条件的判断存在bug。尤其是对于这种多进程程序，没有类似于单进程valgrind调试时方便简洁的工具，只能使用最野蛮最原始的打印与断言调试法，一行一行测试哪里搞错了。相信我，这个过程比我描述得更痛苦，连续花了好几个晚上在3409 debug，每天都信心满满认为明天就能交作业，结果第二天又备受打击地继续陷入debug的困境。这也是我第一次因为程序功能没有实现完全，而非segfault或内存泄露而没有把程序写完善。</p>
+
+<p>最后一点感想就是C程序员真的很辛苦。不像现代语言有许多方便的特性、易懂的预分析结果、详尽的文档与注释，C程序很多时候都得赤膊上阵自己干。哪怕是C++ 11、甚至Windows下的VC++相比之下都没有那么打击人。我曾以为VC++已经是最难读懂文档实现功能的库与语言了，直到我真正写了一些稍微复杂的C程序。</p>
+
+<h2 id="hw4---libpqxx">
+<a class="anchor" href="#hw4---libpqxx" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW4 - libpqxx</h2>
+
+<p>经历了第三次作业的摧残，第四次作业简直是白送。完全没有任何难度，当一次调库侠，按照libpqxx的文档抄抄改改就完成了C++的简单ORM方法的封装。在这次作业中我才知道，SQL injection是多么容易避免的错误，现代的数据库这些细节已经非常完善了。同时，由于作业要求并不要求关于删改部分的操作，也没有多线程等等复杂要求，因此真的让人觉得没学到什么。</p>
+
+<p>为了弥补前两次作业失掉的分数，我选择做了这次的附加题。附加题要求用现有ORM工具实现查表，按照Django的文档走一遍就好了。这也是我第一次真正写一个完整的基于Django的Model-View-Template/Form的后台服务，也第一次发现原来后台起个服务器能这么简单快捷！在这之后，学期中好几个项目我都用了Django作为后台。</p>
+
+<h2 id="hw5---rootkit">
+<a class="anchor" href="#hw5---rootkit" aria-hidden="true"><span class="octicon octicon-link"></span></a>HW5 - rootkit</h2>
+
+<p>rootkit这次作业代码量比较少，逻辑也很清楚，但我仍旧花了不少时间在debug和改进代码上。总体来说，这次作业的代码质量比之前稍有进步，由于需求很清晰，最初搭建的框架简洁明了，也基本做到了注释简明易读。只是有几个问题耽误了大量的时间。</p>
+
+<p>通过<code class="language-plaintext highlighter-rouge">cat /proc/kallsyms | grep memcpy</code> 来查询内核中是否有memcpy这个符号。</p>
+
+<p>具体逻辑跟随着作业简介，通过<code class="language-plaintext highlighter-rouge">strace</code>来查看不同命令调用的syscall。</p>
+
+<h3 id="内核debug">
+<a class="anchor" href="#%E5%86%85%E6%A0%B8debug" aria-hidden="true"><span class="octicon octicon-link"></span></a>内核debug</h3>
+
+<p>由于没有趁手的工具，debug时没法像gdb那样对全局一目了然，也没有图形化IDE的debugger那样直截了当地显示所有变量的便捷，因此我又使用了最低效的办法：注释与打印。</p>
+
+<p>最开始时由于每次insmod注入后，都会发生kernel panic，令我十分烦恼。因此我采用了“增量”测试的方法——先把所有功能代码注释掉，再一个个取消注释，测试具体函数。当我全部注释掉后，才发现原来是对原函数取址时硬编码的地址写反了，造成管理分页权限的函数没有执行成功，才导致了每次都会崩溃。改好了后终于把模块跑了起来。</p>
+
+<p>而后，当我插入getdents函数后又造成内核被Killed，分析后发现应该是死循环造成的，进而看到自己又犯了while循环忘记步进的低级错误。自从决定不在自己的C代码中写for后，无数次被自己坑惨，实乃自作孽不可活。🤦‍</p>
+
+<h3 id="copy_to_user">
+<a class="anchor" href="#copy_to_user" aria-hidden="true"><span class="octicon octicon-link"></span></a>copy_to_user</h3>
+
+<p>再往后，程序基本正确，但在open函数中始终无法正确执行copy_to_user这个函数。man page中并没有该函数的文档，谷歌后只在kernel.org上查到了__copy_to_user这个函数的文档。我想当然就以为二者应该是一样的，况且在GitHub上搜该函数对应的代码和文档中的用法基本一致，因此从未想过“官方”文档竟然也会出错！为了解决这个bug，花了整整两个晚上将近6小时时间，尝试了网上提到的所有copy_to_user的用法——包括改为__put_user，拷贝指针地址而非变量本身，改变缓冲区大小等等。可无论怎么改，返回值始终不是0，也就意味着函数不成功。由于我设置了类似断言的错误处理，每次都会把内核搞乱，因此每测试一次就要重启一次虚拟机，搞得我精疲力竭后，还是同学指出或许是返回状态值可能有误，才将我解脱出这篇苦海。</p>
+
+<p>最后发现，原来官方文档也不能全信！一定要自己设计些小的测试用例来熟悉这些非原生的、文档不详的函数，才能避免在上面大费周章。</p>
+
+<h3 id="清理不成功">
+<a class="anchor" href="#%E6%B8%85%E7%90%86%E4%B8%8D%E6%88%90%E5%8A%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>清理不成功</h3>
+
+<p>最后就是从内核移除rootkit注入模块后清理不成功。像极了个捣蛋鬼小朋友，搞乱了之后不知如何恢复原貌。我总觉得把改过的地方都恢复，按理说就能够无痛移除，但实际上会有未知的bug，在我rmmod后发生在内核中，从而扰乱与文件相关的一些服务，包括除了当前活动的session外其他ssh session断开的问题。暂时还没有想出应该如何完美清理rootkit。</p>
+
+<h2 id="总结">
+<a class="anchor" href="#%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+
+<p>作为一门研究生课程，其难度我觉得只能达到本科生大二到大三之间的水平。尽管如此，我还是学到了不少知识，尤其是有关操作系统以及虚拟内存、多线程/多进程相关的之前自己非常薄弱的知识，还算收获不少。也让我有些遗憾：要是当初学了计算机相关的专业就好啦，这些知识相比起大二时令人痛苦的光学、数学物理方法，乃至之后的热统，都是既简单又富有逻辑，可操作性也很强。虽然我并不后悔自己学过些物理，窥见过美好的人类知识的高峰，但也有些遗憾——要是更早认清自己能力不足以挑战那些极其复杂的物理问题，而转而学习这些由工程师建立起的知识体系与框架，或许能掌握更多方法论的知识。孰是孰非，只能交由时间判断了！</p>
+
+            
+            </div>
+            
+<div class="entry-tags clearfix">
+
+    <div class="entry-footer clearfix">
+
+        <div class="pull-left">
+            <span>
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#review">review</a>
+                
+            </span>            
+            <span><i class="fa fa-eye"></i><span id="busuanzi_value_page_pv">0</span> views</span>
+            <span>
+                <i class="fa fa-comments-o"></i>
+                <a href="#comments" class="disqus-comment-count" data-disqus-identifier="Ting's Blog/coding/ece650-homework-review">GFW comments</a>
+            </span>
+            <span>
+                <i class="fa fa-check-square-o"></i><span>4106 words</span>
+            </span>
+            <span>
+                <i class="fa fa-link"></i>
+                <a data-toggle="collapse" href="#share-content" aria-expanded="false" aria-controls="share-content">Share</a>
+        </div>
+        <div class="pull-right collapse in" id="share-content">
+            
+<div class="entry-share-links">
+
+    <div class="btn-group" role="group" aria-label="Share">
+        <button type="button" class="btn btn-default btn-sm btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><a href="http://www.facebook.com/sharer.php?u=https://yo1995.github.io/coding/ece650-homework-review/" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></button>
+        
+        <button type="button" class="btn btn-default btn-sm btn-twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><a href="https://twitter.com/share?url=https://yo1995.github.io/coding/ece650-homework-review/&amp;text=650 作业回顾" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-weibo" data-toggle="tooltip" data-placement="top" title="新浪微博"><a href="http://service.weibo.com/share/share.php?url=https://yo1995.github.io/coding/ece650-homework-review/&title=分享%4011L23+的文章「650 作业回顾」&content=简单回顾650作业。&pic=https://yo1995.github.io/images/201904/rootkit-512.png" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></button>
+
+        <button type="button" class="btn btn-default btn-sm btn-douban" data-toggle="tooltip" data-placement="top" title="豆瓣"><a href="https://www.douban.com/share/service?name=650 作业回顾&href=https://yo1995.github.io/coding/ece650-homework-review/&image=https://yo1995.github.io/images/201904/rootkit-512.png&url=https://yo1995.github.io/coding/ece650-homework-review/&title=650 作业回顾" target="_blank"><i class="fa fa-fw">豆</i></a></button>
+
+        <a tabindex="0" class="btn btn-sm btn-weixin" role="button" data-trigger="hover" data-placement="top" id="qrcode-btn"><i class="fa fa-fw fa-weixin"></i></a>
+
+        <div id="qrcode-content" class="qrcode-hidden"><div id="qrcode"></div></div>
+        <div id="qrcode-title" class="qrcode-hidden">Scan to Read</div>
+		
+		<button type="button" class="btn btn-default btn-sm btn-email"><a href="mailto:?Subject=650 作业回顾&amp;Body=简单回顾650作业。%20https://yo1995.github.io/coding/ece650-homework-review/"><i class="fa fa-fw fa-envelope-o"></i> Email</a></button>
+
+        <div class="btn-group btn-group-justified dropup" role="group">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle btn-more" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-share-alt"></i><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-google"><a href="https://plus.google.com/share?url=https://yo1995.github.io/coding/ece650-homework-review/" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google Plus</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-linkedin"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://yo1995.github.io/coding/ece650-homework-review/" target="_blank"><i class="fa fa-fw fa-linkedin"></i> Linkedin</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-digg"><a href="http://www.digg.com/submit?url=https://yo1995.github.io/coding/ece650-homework-review/" target="_blank"><i class="fa fa-fw fa-digg"></i> Digg</a></button></li>
+
+                
+                <li><button type="button" class="btn btn-default btn-sm btn-pinterest"><a href="https://pinterest.com/pin/create/bookmarklet/?media=https://yo1995.github.io/images/201904/rootkit-512.png&url=https://yo1995.github.io/coding/ece650-homework-review/&description=650 作业回顾" target="_blank"><i class="fa fa-fw fa-pinterest-p"></i> Pinterest</a></button></li>
+                 
+                 
+
+                <li><button type="button" class="btn btn-default btn-sm btn-reddit"><a href="http://reddit.com/submit?url=https://yo1995.github.io/coding/ece650-homework-review/&amp;title=650 作业回顾" target="_blank"><i class="fa fa-fw fa-reddit-alien"></i> Reddit</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-tumblr"><a href="http://www.tumblr.com/share/link?url=https://yo1995.github.io/coding/ece650-homework-review/&amp;title=650 作业回顾" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></button></li>
+
+                <li><button type="button" class="btn btn-default btn-sm btn-print"><a href="javascript:;" onclick="window.print()"><i class="fa fa-fw fa-print"></i> Print</a></button></li>
+
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+        </div>
+    </div>  
+
+</div>
+
+          </div>
+        </article>
+        <!-- END SINGLE-POST -->
+
+        
+<div class="post-navigation clearfix">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <div class="previous-post">
+                <div class="arrow">
+                    <i class="fa fa-angle-double-left"></i>
+                    
+                    <a href="/coding/lg-ultrafine-brightness/" class="animsition-link" data-hover-text="Prev: LG UltraFine brightness adjustment tool for Windows">Prev: LG UltraFine brightness adjustment tool for Windows</a>
+                    
+                </div>
+
+            </div>
+            <!-- END PREVIOUS-POST -->
+        </div>
+        <div class="col-xs-6">
+            <div class="next-post">
+                <div class="arrow">
+                    
+                    <a href="/school/graduation-one-last-dance/" class="animsition-link" data-hover-text="Next: 他们毕业了">Next: 他们毕业了</a>
+                    
+                    <i class="fa fa-angle-double-right"></i>
+                </div>
+
+            </div>
+            <!-- END NEXT-POST -->
+        </div>
+    </div>
+</div>
+<!-- END POST-NAVIGATION -->
+		<!-- 180726 add multi author support -->
+		 
+			<div class="author-info clearfix">
+    <div class="author-avatar">
+        <img class="avatar" src="/img/avatar.png" alt="Chen Ting">
+    </div>
+
+    <div class="author-description">
+        <h4 class="author-title">
+            <a href="/about/">Chen Ting <i class="fa fa-link"></i></a>
+        </h4>
+        <p class="author-bio">
+            The page aimed to exhibit activities & achievements during Ting's undergraduate & graduate period. Meanwhile, other aspects such as lifestyles, literary work, travel notes, etc. would interweave in the narration.
+        </p>
+    </div>
+	<!-- add busaunzi to see how many views and reads happens to my page. addition to tecent -->
+	<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+</div>
+<!-- END AUTHOR-INFO -->
+		 
+		 
+        
+
+<div class="comments-area clearfix">
+    <div class="comment-respond">
+		<h4 class="comment-reply-title" id="comments">Leave a Comment</h4>
+		<div class="disqus-placeholder alert alert-info" style="text-align: center">
+			<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Disqus might be GFW-ed. Excited!
+		</div>
+		<script src="/assets/js/disqusloader.js"></script>
+		<div class="disqus"></div>
+		<!--
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://yo1995.github.io/coding/ece650-homework-review/";
+        this.page.identifier = "Ting's Blog//coding/ece650-homework-review";
+        this.page.title = "650 作业回顾";
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//yo1995.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+		-->
+		<script>disqusLoader( '.disqus', { 
+			scriptUrl: '//yo1995.disqus.com/embed.js',
+			disqusConfig: function(){
+				this.callbacks.onReady = [function(){
+				var el = document.querySelector( '.disqus-placeholder' );
+				if( el.classList )
+					el.classList.add( 'is-hidden' ); // IE 10+
+				else
+					el.className += ' ' + 'is-hidden'; // IE 8-9
+				}];}
+			});
+		</script>
+       <noscript>Please conquer the GFW or enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    </div>
+</div>
+<!-- END COMMENTS-AREA -->
+
+
+      </div>
+
+      <div class="col-md-4 sidebar-fixed">
+    <div class="sidebar">
+        <!-- aside class="widget-wrap widget-search">
+            <h6 class="widget-title">
+                <span>Search for a topic?</span>
+            </h6>
+			<div onclick="keyinsearch()" class="search-form text-center" id="search-container">
+				<input type="text" id="search-input" placeholder="search...">
+				<i class="fa fa-search"></i>
+				<ul id="results-container" style="list-style:square"></ul>
+			</div>
+			<!-- 180206 - update -->
+<script src="/assets/js/jekyll-search.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  function keyinsearch () {
+  SimpleJekyllSearch({
+	searchInput: document.getElementById('search-input'),
+	resultsContainer: document.getElementById('results-container'),
+	json: '/search.json',
+	searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+	noResultsText: '无结果',
+	limit: 5,
+	fuzzy: false
+  });
+  }
+</script>
+
+
+<!-- 暂时还没想好cache怎么改写，目前每次请求都是200 ！= = 不够chrome貌似是直接从本地磁盘加载的 -->
+<!--
+<form class="search-form" action="/search/" target="_blank" method="get">
+	<input type="text" placeholder="Search..." name="q">
+	<i class="fa fa-search"></i>
+</form>
+-->
+
+        </aside -->
+		<!-- END WIDGET-WRAP -->
+		
+        <aside class="widget-wrap widget-toc">
+            <h6 class="widget-title">
+                <span>Table of Contents <!-- sup class="scroll-top" style="text-transform:none">back to top</sup --></span>
+            </h6>
+            <div id="navbar">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#hw1--hw2---my_malloc">HW1 &amp; HW2 - my_malloc</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#改进">改进</a></li>
+<li class="toc-entry toc-h3"><a href="#合并策略">合并策略</a></li>
+<li class="toc-entry toc-h3"><a href="#第二次作业">第二次作业</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#hw3---socket_game">HW3 - socket_game</a></li>
+<li class="toc-entry toc-h2"><a href="#hw4---libpqxx">HW4 - libpqxx</a></li>
+<li class="toc-entry toc-h2"><a href="#hw5---rootkit">HW5 - rootkit</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#内核debug">内核debug</a></li>
+<li class="toc-entry toc-h3"><a href="#copy_to_user">copy_to_user</a></li>
+<li class="toc-entry toc-h3"><a href="#清理不成功">清理不成功</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#总结">总结</a></li>
+</ul>
+            </div>
+        </aside>
+		
+		<!-- END WIDGET-WRAP -->
+		<aside class="widget-wrap widget-recent-posts">
+            <h6 class="widget-title">
+                <span>Related Posts</span>
+            </h6>
+            <ul class="recent-posts">
+            
+                
+                
+                
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/coding/Xcode-markup-font/">
+                                <img src="/images/202108/Xcode-markup.png" alt="Xcode文档对齐小技巧">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/coding/Xcode-markup-font/">Xcode文档对齐小技巧</a>
+                            <span>2021/08/21</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/introspection/fight-against-fear-of-failure/">
+                                <img src="/images/202107/fear-of-failure.jpg" alt="尝试">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/introspection/fight-against-fear-of-failure/">尝试</a>
+                            <span>2021/07/22</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                
+                    
+                    
+                    <li>
+                        <figure>
+                            <a class="animsition-link" href="/life/bikes/">
+                                <img src="/images/reviews/bikes/tcr.jpg" alt="骑过的车">
+                            </a>
+                        </figure>
+                        <div class="recent-post-content">
+                            <a class="animsition-link" href="/life/bikes/">骑过的车</a>
+                            <span>2021/07/20</span>
+                        </div>
+                    </li>
+                    
+                    
+                
+                
+                    
+
+                
+                                   
+            </ul>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+        <!-- aside class="widget-wrap widget-categories">
+            <h6 class="widget-title">
+                <span>Categories</span>
+            </h6>
+            <ul>
+				
+				
+                <li><a href="/categories/#coding">Coding</a></li>
+                
+                <li><a href="/categories/#ee">EE</a></li>
+                
+                <li><a href="/categories/#fantasywhimridicule">FantasyWhimRidicule</a></li>
+                
+                <li><a href="/categories/#games">Games</a></li>
+                
+                <li><a href="/categories/#html">Html</a></li>
+                
+                <li><a href="/categories/#introspection">Introspection</a></li>
+                
+                <li><a href="/categories/#life">Life</a></li>
+                
+                <li><a href="/categories/#movie">Movie</a></li>
+                
+                <li><a href="/categories/#physics">Physics</a></li>
+                
+                <li><a href="/categories/#reading">Reading</a></li>
+                
+                <li><a href="/categories/#school">School</a></li>
+                
+                <li><a href="/categories/#society">Society</a></li>
+                
+                <li><a href="/categories/#sports">Sports</a></li>
+                
+                <li><a href="/categories/#tools">Tools</a></li>
+                
+                <li><a href="/categories/#video">Video</a></li>
+                
+                <li><a href="/categories/#zhuism">Zhuism</a></li>
+                
+            </ul>
+        </aside -->
+        <!-- END WIDGET-WRAP -->
+        <aside class="widget-wrap widget-tag">
+            <h6 class="widget-title">
+                <span>Tags Widget <sup class="scroll-top" style="text-transform:none">back to top</sup></span>
+            </h6>
+            <div class="tag-cloud">
+                
+                <a href="/tags/#lifestyle">lifestyle</a>
+                
+                <a href="/tags/#love">love</a>
+                
+                <a href="/tags/#choice">choice</a>
+                
+                <a href="/tags/#education">education</a>
+                
+                <a href="/tags/#future">future</a>
+                
+                <a href="/tags/#reminiscence">reminiscence</a>
+                
+                <a href="/tags/#project">project</a>
+                
+                <a href="/tags/#girl">girl</a>
+                
+                <a href="/tags/#review">review</a>
+                
+                <a href="/tags/#year">year</a>
+                
+                <a href="/tags/#trivia">trivia</a>
+                
+                <a href="/tags/#world">world</a>
+                
+                <a href="/tags/#friend">friend</a>
+                
+                <a href="/tags/#cycling">cycling</a>
+                
+                <a href="/tags/#science">science</a>
+                
+                <a href="/tags/#ball">ball</a>
+                
+                <a href="/tags/#sport">sport</a>
+                
+                <a href="/tags/#entertainment">entertainment</a>
+                
+                <a href="/tags/#reading">reading</a>
+                
+                <a href="/tags/#technology">technology</a>
+                
+                <a href="/tags/#writing">writing</a>
+                
+                <a href="/tags/#travel">travel</a>
+                
+                <a href="/tags/#politics">politics</a>
+                
+                <a href="/tags/#helloworld">helloworld</a>
+                
+                <a href="/tags/#programming">programming</a>
+                
+                <a href="/tags/#career">career</a>
+                
+                <a href="/tags/#python">python</a>
+                
+                <a href="/tags/#windows">windows</a>
+                
+                <a href="/tags/#tool">tool</a>
+                
+                <a href="/tags/#bbs">bbs</a>
+                
+                <a href="/tags/#universe">universe</a>
+                
+                <a href="/tags/#dream">dream</a>
+                
+                <a href="/tags/#history">history</a>
+                
+                <a href="/tags/#investment">investment</a>
+                
+                <a href="/tags/#finance">finance</a>
+                
+                <a href="/tags/#mac">mac</a>
+                
+                <a href="/tags/#food">food</a>
+                
+                <a href="/tags/#music">music</a>
+                
+                <a href="/tags/#data">data</a>
+                
+                <a href="/tags/#tip">tip</a>
+                
+                <a href="/tags/#cpp">cpp</a>
+                
+                <a href="/tags/#swimming">swimming</a>
+                
+                <a href="/tags/#swift">swift</a>
+                
+                <a href="/tags/#museum">museum</a>
+                
+            </div>
+        </aside>
+        <!-- END WIDGET-WRAP -->
+    </div>
+    <!-- END SIDEBAR -->
+</div>
+
+    </div>
+  </div>
+</div>
+<!-- END SINGLE-POST-WRAP -->
+
+
+        </main>
+        <!-- END MAIN -->
+
+        
+<footer>
+  <div class="footer">
+    <div class="container">
+      <div class="text-center">
+        <a href="/blog" class="logo clearfix animsition-link"><img src="/img/sig.svg" width="400" alt="Chen's Sig"></a>
+        <p class="copy">
+          Maintained by <a href="/about/">Chen Ting</a> 
+		  
+        </p>
+        <div class="icon-list">
+          <a href="https://www.linkedin.com/in/ting-chen-402bab122/" target="_blank">
+            <i class="fa fa-fw fa-linkedin"></i>
+          </a>
+          <a href="http://my.hupu.com/17573413/" target="_blank">
+            <i class="fa fa-fw fa-futbol-o"></i>
+          </a>
+          <a href="https://www.douban.com/people/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-book"></i>
+          </a>
+		   <a href="https://www.flickr.com/photos/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-flickr"></i>
+          </a>
+          <a href="https://github.com/yo1995/" target="_blank">
+            <i class="fa fa-fw fa-github"></i>
+          </a>
+		  <a href="/feed.xml" target="_blank">
+            <i class="fa fa-fw fa-rss"></i>
+          </a>
+        </div>
+        <div class="scroll-top">go to top</div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END FOOTER -->
+</footer>
+
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END ANIMSITION -->
+
+    
+<!-- SCRIPTS -->
+<script src="/assets/js/jquery-1.12.0.min.js"></script>
+<script src="/assets/js/plugins.min.js"></script>
+<script src="/assets/js/jquery.fitvids.js"></script>
+<!-- CUSTOM SCRIPT -->
+<script src="/assets/js/script.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<!-- Script pointing to jekyll-search.js -->
+<script src="/assets/js/tether.min.js"></script>
+
+
+<script src="/assets/js/qrcode.js"></script>
+<script>
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: "https://yo1995.github.io/coding/ece650-homework-review/",
+    width: 196,
+    height: 196,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H,
+    useSVG: true
+});
+</script>
+
+
+<!-- 爱心特效 -->
+
+
+
+<script async src="/assets/js/busuanzi.pure.mini.js"></script>
+<!--script id="dsq-count-scr" src="//yo1995.disqus.com/count.js" async></script-->
+
+
+
+
+
+
+
+<!--script>
+  'GoogleAnalyticsObject'
+  'https://www.google-analytics.com/analytics.js'
+</script-->
+
+
+  </body>
+
+</html>
