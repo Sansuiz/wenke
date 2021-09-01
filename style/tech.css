@@ -1,0 +1,40 @@
+@import url("/style/layout.css");
+
+:root {
+	background-color: #fcfcfc;
+	background-image: url("/style/natural-paper.png");
+	color: #222222;
+    border-color: #222222;
+}
+body {
+	width: 40rem;
+}
+a {
+    color: #444444;
+}
+a:hover, body>footer {
+	color: #888888;
+}
+nav {
+	background-color: RGBA(224,224,224,0.5);
+}
+h1, h2, h3, h4, h5, h6 {
+    border-color: RGBA(34,34,34,0.);
+}
+hr, blockquote, aside {
+    border-color: RGBA(127,127,127,0.6);
+}
+aside, pre {
+    background-color: rgba(238,238,238,0.6);
+}
+
+td {
+    border-color: #888888;
+}
+
+@media print and (min-aspect-ratio: 4/3) {
+	body {
+		width: 95%;
+		column-count: 2;
+		column-gap: 5%;
+}}

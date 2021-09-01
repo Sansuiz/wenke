@@ -1,4 +1,10 @@
-.idea
-*.iws
-*.iml
-*.ipr
+.*.html
+*.md
+*.rtf
+*.log
+desktop.ini
+Thumbs.db
+*.bat
+*.zip
+_vti_cnf/
+_vti_pvt/
