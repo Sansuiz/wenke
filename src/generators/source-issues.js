@@ -164,7 +164,7 @@ exports.sourceIssues = async ({
 
   const configSourceIssues = {
     owner: `Sansuiz`,
-    repo: `blog-contents`,
+    repo: `wenke-contents`,
     labels: [process.env.NODE_ENV === 'development' ? `++` : `+`],
   };
 

@@ -38,7 +38,7 @@ GitHub Action 在提交后触发，制作镜像（很不优雅）：
 1. 检出仓库 `master` 分支的最新一次提交到 `master` 文件夹。注意，此时在 CD 服务器上的仓库里只有这一次提交，没有 `master` 分支以往的提交和其他分支，但远程服务器（`remote`）则绑定好了 GitHub 仓库的 `master` 分支。
 2. 检出仓库 `gitee` 分支的最新一次提交到 `gitee` 文件夹，这时分支的远程服务器就是 `gitee` 分支。
 3. 土味替换 🤦‍：把 `gitee/.git` 文件夹取出来，删掉 `master/.git` 文件夹，再删掉 `gitee` 文件夹（如果直接覆盖，可能有一部分存在于旧版本而不存在于新版本的文件被保留下来，因此必须清空），再把 `master` 文件夹拷贝到 `gitee` 文件夹（其实就是重命名），最后把之前取出来的 `gitee/.git` 放回去。
-4. 部署成品里面用于页面间导航的 URL 设成了绝对路径，要把所有 URL 中的 `{username}.github.io/blog/` 替换成 `{username}.gitee.io/blog/`。
+4. 部署成品里面用于页面间导航的 URL 设成了绝对路径，要把所有 URL 中的 `{username}.github.io/wenke/` 替换成 `{username}.gitee.io/wenke/`。
 5. 提交到 `gitee` 分支。
 6. 使用第三方 Action 将库镜像到 Gitee，并触发 Gitee Pages 部署 `gitee` 分支。
 

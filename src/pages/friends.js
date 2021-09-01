@@ -8,7 +8,7 @@ export const query = graphql`
     childYaml {
       friends {
         avatar
-        blog
+        wenke
         link
         name
       }
@@ -30,11 +30,11 @@ const Friends = ({ data }) => {
       <p className="subtitle">
         申请添加友链在{' '}
         <a
-          href="https://github.com/Sansuiz/blog-contents/issues/2#issue-comment-box"
+          href="https://github.com/Sansuiz/wenke-contents/issues/2#issue-comment-box"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sansuiz/blog-contents #2
+          Sansuiz/wenke-contents #2
         </a>{' '}
         下评论即可🤗~！
       </p>

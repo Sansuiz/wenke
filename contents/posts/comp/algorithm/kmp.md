@@ -194,5 +194,5 @@ def kmp(p, s): # pattern 模式串, string 目标串
 
 ## 参考资料
 
-- [July，从头到尾彻底理解 KMP，2014](https://blog.csdn.net/v_july_v/article/details/7041827)
+- [July，从头到尾彻底理解 KMP，2014](https://wenke.csdn.net/v_july_v/article/details/7041827)
 - 裘宗燕，数据结构与算法：Python 语言描述，2018

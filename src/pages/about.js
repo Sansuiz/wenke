@@ -30,7 +30,7 @@ const About = () => {
       <h2 id="网站">网站</h2>
       <p>
         <a
-          href="https://Sansuiz.github.io/blog/"
+          href="https://Sansuiz.github.io/wenke/"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -38,7 +38,7 @@ const About = () => {
         </a>
         托管在 GitHub Pages 上，另有 Gitee Pages{' '}
         <a
-          href="https://Sansuiz.gitee.io/blog/"
+          href="https://Sansuiz.gitee.io/wenke/"
           target="_blank"
           rel="noreferrer noopener"
         >

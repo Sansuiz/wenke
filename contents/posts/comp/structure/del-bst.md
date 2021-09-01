@@ -93,7 +93,7 @@ def delete(self, key):
 
 ## 旋转
 
-课程里没有提及旋转的概念。后来一位前 OIer 朋友（[\@FYH](https://www.cnblogs.com/FYH-SSGSS/)）给我科普，以上删除结点的操作其实涉及到了旋转。
+课程里没有提及旋转的概念。后来一位前 OIer 朋友（[\@FYH](https://www.cnwenkes.com/FYH-SSGSS/)）给我科普，以上删除结点的操作其实涉及到了旋转。
 
 对于以下两棵二叉搜索树：
 

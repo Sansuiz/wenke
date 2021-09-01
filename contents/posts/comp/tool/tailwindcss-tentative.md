@@ -93,7 +93,7 @@ Tailwind 覆盖的 CSS 样式非常广，官网的文档也写得非常详细，
 
 尽管 Tailwind 覆盖的属性已经非常广了，但它也不可能穷尽所有的值，因此**有时需要手动填写配置文件**，如果你本身就喜欢玩各种 CSS 花样，大规模填写配置文件是个很痛苦的工程。
 
-比如说，需要使用一些 flex 或者 grid 布局，比如[这篇文章](http://www.ruanyifeng.com/blog/2020/08/five-css-layouts-in-one-line.html)中介绍的三明治布局：
+比如说，需要使用一些 flex 或者 grid 布局，比如[这篇文章](http://www.ruanyifeng.com/wenke/2020/08/five-css-layouts-in-one-line.html)中介绍的三明治布局：
 
 ```css
 .container {

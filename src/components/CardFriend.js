@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import '../styles/components/card-friend.scss';
 
 function CardFriend({ friend }) {
-  const { name, avatar, link, blog } = friend;
+  const { name, avatar, link, wenke } = friend;
 
   return (
     <div className="card-friend">
@@ -18,7 +18,7 @@ function CardFriend({ friend }) {
       </a>
       <a
         className="card-friend-name"
-        href={blog}
+        href={wenke}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -33,7 +33,7 @@ CardFriend.propTypes = {
     name: PropTypes.string,
     avatar: PropTypes.string,
     link: PropTypes.string,
-    blog: PropTypes.string,
+    wenke: PropTypes.string,
   }),
 };
 
