@@ -10,9 +10,9 @@ jobs:
 
     steps:
       - name: Dispatch Contents Issues Update Event
-        if: ${{ github.event.sender.login == 'Yixuan-Wang' }}
+        if: ${{ github.event.sender.login == 'Sansuiz' }}
         uses: peter-evans/repository-dispatch@v1
         with:
-          repository: Yixuan-Wang/blog
+          repository: Sansuiz/blog
           token: ${{ secrets.ACCESS_TOKEN }}
           event-type: contents-issues-update

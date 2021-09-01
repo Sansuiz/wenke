@@ -74,13 +74,13 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
         with:
-          source-repo: "git@github.com:Yixuan-Wang/blog.git"
-          destination-repo: "git@gitee.com:yixuan-wang/blog.git"
+          source-repo: "git@github.com:Sansuiz/blog.git"
+          destination-repo: "git@gitee.com:Sansuiz/blog.git"
 
       - name: Deploy Gitee Pages
         uses: yanglbme/gitee-pages-action@master
         with:
-          gitee-username: yixuan-wang
+          gitee-username: Sansuiz
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          gitee-repo: yixuan-wang/blog
+          gitee-repo: Sansuiz/blog
           branch: gh-pages      

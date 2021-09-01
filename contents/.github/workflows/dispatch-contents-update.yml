@@ -13,7 +13,7 @@ jobs:
         if: ${{ !startsWith(github.event.commits[0].message, '!') }}
         uses: peter-evans/repository-dispatch@v1
         with:
-          repository: Yixuan-Wang/blog
+          repository: Sansuiz/blog
           token: ${{ secrets.ACCESS_TOKEN }}
           event-type: contents-update
           client-payload: |

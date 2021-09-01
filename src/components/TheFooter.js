@@ -13,7 +13,7 @@ function Footer() {
         <ButtonSocial
           className="footer-button"
           socialName="github"
-          href="https://github.com/Yixuan-Wang"
+          href="https://github.com/Sansuiz"
         />
         <ButtonSocial
           className="footer-button"

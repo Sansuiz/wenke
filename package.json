@@ -51,7 +51,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Yixuan-Wang/blog.git"
+    "url": "git+https://github.com/Sansuiz/blog.git"
   },
   "scripts": {
     "build": "gatsby build",

@@ -163,7 +163,7 @@ exports.sourceIssues = async ({
   const { createNode } = actions;
 
   const configSourceIssues = {
-    owner: `Yixuan-Wang`,
+    owner: `Sansuiz`,
     repo: `blog-contents`,
     labels: [process.env.NODE_ENV === 'development' ? `++` : `+`],
   };

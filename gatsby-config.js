@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `Pak`,
     description: `This is a blоg, not a blοg.`,
-    author: `@Yixuan-Wang`,
+    author: `@Sansuiz`,
     quarter: [`posts`, `sheets`, `talks`, `others`],
   },
   plugins: [

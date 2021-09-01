@@ -30,11 +30,11 @@ const Friends = ({ data }) => {
       <p className="subtitle">
         申请添加友链在{' '}
         <a
-          href="https://github.com/Yixuan-Wang/blog-contents/issues/2#issue-comment-box"
+          href="https://github.com/Sansuiz/blog-contents/issues/2#issue-comment-box"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Yixuan-Wang/blog-contents #2
+          Sansuiz/blog-contents #2
         </a>{' '}
         下评论即可🤗~！
       </p>
