@@ -1,20 +1,20 @@
 # Site settings
-title: 橋本 龍のホームページ
-description: 橋本 龍のホームページ
+title: SANSUI | WENKE
+description: 三歲的文學星空
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
 # User settings
 user:
     fullname: 
-        ja: 橋本 龍
+        ja: 三歲 | 文學
         ja_hira: はしもと りょう
-        ja_kata: ハシモト リョウ
-    en: Ryo Hashimoto
-    occupation: System Engineer
-    email: hashimotoryoh@gmail.com
-    tel: 090-6870-0027
-    twitter_username: hashimotoryoh
+        ja_kata: SANSUI  WENKE
+    en: SANSUI ZHAO
+    occupation: 三歲文學
+    email: sansui_z@126.com
+    tel: 
+    twitter_username: XIANG_BLQ
     facebook_username: ryoh.hashimoto
     instagram_username: hashimotoryoh
     github_username: hashimotoryoh
