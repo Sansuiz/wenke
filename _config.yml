@@ -1,5 +1,5 @@
 # Site settings
-title: SANSUI | WENKE
+title: 三歲 | 文學
 description: 三歲的文學星空
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
@@ -11,7 +11,7 @@ user:
         ja_hira: はしもと りょう
         ja_kata: SANSUI  WENKE
     en: SANSUI ZHAO
-    occupation: 三歲文學
+    occupation: SANSUI | WENKE
     email: sansui_z@126.com
     tel: 
     twitter_username: XIANG_BLQ
